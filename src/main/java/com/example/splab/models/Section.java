@@ -5,7 +5,7 @@ import com.example.splab.models.Element;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Section implements Element {
+public class Section implements Element, Visitee {
     private String title;
     private List<Element> children = new ArrayList<>();
 
@@ -34,4 +34,12 @@ public class Section implements Element {
     public Element get(int i){
         return children.get(i);
     }
+
+
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitSection(this);
+    }
 }
+

@@ -3,7 +3,7 @@ package com.example.splab.models;
 import com.example.splab.services.AlignLeft;
 import com.example.splab.services.AlignStrategy;
 
-public class Paragraph implements Element {
+public class Paragraph implements Element, Visitee{
     private String name;
     private AlignStrategy align;
     public Paragraph(String name){
@@ -35,5 +35,10 @@ public class Paragraph implements Element {
 
     public void setAlignStrategy(AlignStrategy align) {
         this.align = align;
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitParagraph(this);
     }
 }

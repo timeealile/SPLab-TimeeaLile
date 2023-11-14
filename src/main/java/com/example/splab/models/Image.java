@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import com.example.splab.models.Element;
 import lombok.Data;
 @Data
-public class Image implements Element {
+public class Image implements Element, Visitee {
     private String imagename;
 
     public Image(String imagename){
@@ -33,5 +33,10 @@ public class Image implements Element {
     @Override
     public Element get(int i) {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitImage(this);
     }
 }

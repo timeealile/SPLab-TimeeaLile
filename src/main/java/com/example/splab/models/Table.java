@@ -2,7 +2,7 @@ package com.example.splab.models;
 
 import com.example.splab.models.Element;
 
-public class Table implements Element {
+public class Table implements Element ,Visitee {
     private String name;
     public Table(String name){
         this.name = name;
@@ -27,4 +27,10 @@ public class Table implements Element {
     public Element get(int i) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitTable(this);
+    }
 }
+
